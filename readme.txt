@@ -16,8 +16,8 @@ Sell products before they are released, with a chosen availability date. Buyers 
 
 HDWebmobile Pre-Orders lets you sell a product before it is available. Tick "Pre-order" on the product, set an "Available from" date, and buyers can order it right away: the add-to-cart button becomes "Pre-order", the product page and cart show when it ships, and the order confirmation and emails carry an estimated availability date. When you are ready, one click on the order marks it released and notifies the customer. After the release date, the product simply sells as normal — no cleanup needed.
 
-= Why this plugin exists =
-A competing "Pre-Orders for WooCommerce" plugin (versions 2.3 and earlier) shipped CVE-2026-84849 — an authentication-bypass-by-spoofing flaw (CWE-290, CVSS 6.5) that let an **unauthenticated** request reach pre-order data (customer names, addresses, payment details) and create or alter orders. This plugin is built so that whole class of bug has nowhere to live:
+= Security by design =
+A serious class of bug in pre-order tools is authentication bypass by spoofing (CWE-290): an **unauthenticated** request reaching pre-order data (customer names, addresses, payment details) and creating or altering orders. This plugin is built so that whole class of bug has nowhere to live:
 
 * **No custom AJAX or REST endpoint.** This plugin adds none. A customer only ever sees their own pre-orders inside WooCommerce's own My Account area, which WooCommerce already restricts to the logged-in account.
 * **Identity is never taken from a request.** Every customer reference is `$order->get_customer_id()` or `get_current_user_id()` — never an id, email address, or token supplied by the caller. There is nothing to spoof.
