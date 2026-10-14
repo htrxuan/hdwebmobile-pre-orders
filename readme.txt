@@ -38,6 +38,9 @@ A serious class of bug in pre-order tools is authentication bypass by spoofing (
 * No per-customer pre-order limits or pre-order stock cap
 * The "Available from" date is a single global date per product, not per-variation
 
+= Enjoying this plugin? =
+If it helps your site, please consider [leaving an honest review on WordPress.org](https://wordpress.org/support/plugin/hdwebmobile-pre-orders/reviews/#new-post) -- it helps other WordPress users find it. Found a problem or have an idea? Please [open a support topic](https://wordpress.org/support/plugin/hdwebmobile-pre-orders/) first so it can be fixed.
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/hdwebmobile-pre-orders` directory, or install the plugin through the WordPress plugins screen directly.
