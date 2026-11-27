@@ -11,9 +11,8 @@ if (!defined('ABSPATH')) {
  * items and the products' admin-only settings -- it is never read from, or set by, a
  * front-end request.
  *
- * CVE-2026-84849 (CWE-290, Authentication Bypass by Spoofing, CVSS 6.5) in a competing
- * "Pre-Orders for WooCommerce" plugin let an unauthenticated request reach pre-order data
- * (customer names, addresses, payment details) and create or alter orders. This plugin has
+ * The risk this guards against: an unauthenticated request reaching pre-order data (customer
+ * names, addresses, payment details) or creating/altering orders. This plugin has
  * no AJAX or REST endpoint of its own at all: a customer only ever sees their own
  * pre-orders inside WooCommerce's native My Account area, which WooCommerce already scopes
  * to the logged-in user, and every identity used here is $order->get_customer_id() /

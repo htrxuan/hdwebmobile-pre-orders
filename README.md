@@ -12,7 +12,7 @@ Tick "Pre-order" on a product, set an "Available from" date, and buyers can orde
 
 ## Why this plugin exists
 
-A competing "Pre-Orders for WooCommerce" plugin (≤ 2.3) shipped CVE-2026-84849 — authentication bypass by spoofing (CWE-290, CVSS 6.5) — letting an unauthenticated request read pre-order data (names, addresses, payment details) and create or alter orders. This plugin gives that class of bug nowhere to live:
+The main risk in pre-order plugins is an authentication bypass letting an unauthenticated request read pre-order data (names, addresses, payment details) or create and alter orders. This plugin gives that class of bug nowhere to live:
 
 * **No custom AJAX or REST endpoint.** Customers see their pre-orders only in WooCommerce's own My Account area, already scoped to the logged-in user.
 * **Identity is never taken from a request** — always `$order->get_customer_id()` / `get_current_user_id()`, never an id / email / token from the caller.
